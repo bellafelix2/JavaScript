@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        color: white;
+        font-family: sans-serif;
+        text-align: center;
+    }
+
+    .div-1 {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        background-color: #333;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .div-2 {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        background-color: black;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    .lb-2 {
+        padding: 10px;
+    }
+
+    .btn-2 {
+        margin-top: 10px;
+        display: block;
+        width: 100px;
+    }
+</style>
+
+<body>
+
+    <div class="div-1">
+        <span>
+            Projeto que manipula HTML, CSS, JS. <br>
+            Resgata valores e coloca valores em elementos HTML.
+        </span>
+
+
+        <h3>Primeiro número</h3>
+        <p id="texto-1">32</p>
+
+        <h3>Segundo Número</h3>
+        <p id="texto-2">10</p>
+
+        <h3>Resultado:</h3>
+        <p id="resultado">Resultado: </p>
+    </div>
+
+    <div class="div-2">
+        <div class="lb-2">
+            <label >
+                Digite num 1:
+                <input id="num1" />
+            </label>
+        </div>
+
+        <label>
+            Digite num 2:
+            <input id="num2" />
+        </label>
+
+        <button class="btn-2" onclick="handleClick()">Resultado</button>
+
+
+
+    </div>
+
+
+    <script>
+
+        function resultadoParagrafo() {
+            const t1 = parseInt(document.getElementById('texto-1').textContent);
+            const t2 = parseInt(document.getElementById('texto-2').textContent);
+
+            const resultado = t1 + t2;
+
+
+            const res = document.getElementById('resultado');
+            res.innerHTML = resultado;
+        }
+
+
+        function handleClick() {
+            const num1 = parseInt(document.getElementById('num1').value);
+            const num2 = parseInt(document.getElementById('num2').value);
+
+            const res = num1 + num2
+
+            alert(`Resultado ${res}`);
+        }
+
+        resultadoParagrafo();
+    </script>
+</body>
+
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+<style>
+    /* Crie o seu ESTILO aqui */
+    * {
+        margin: 0;
+    }
+
+    h4 {
+        font-size: 30px;
+        font-family: sans-serif;
+    }
+
+</style>
+
+
+
+<body>
+
+    <h4>Calculadora</h4>
+    <form>
+        <label>
+            Informe seu peso (kg)
+            <input type="number" required id="peso" />
+        </label>
+
+        <label>
+            Informe sua altura (metro e cm, separados por vírgula)
+            <input required type="number" id="altura" />
+        </label>
+
+        <input type="submit" value="Calcular" onclick="handleClick()" />
+    </form>
+
+
+
+
+    <script>
+
+        const handleClick = () => {
+            // Escreve sua função aqui!
+            // Faça uma calculadora IMC
+            // Exibir no alerta o resultado correto 
+            // Resultado: 23,5 Peso ideal
+
+
+
+            const peso = parseFloat(document.getElementById('peso').value);
+            const altura = parseFloat(document.getElementById('altura').value);
+
+
+            const resultado = peso / (altura * altura);
+            let classificacao = '';
+
+            if (resultado < 18.4) {
+                classificacao = 'Abaixo do peso';
+            } else if (resultado >= 18.4 && resultado < 24.9) {
+                classificacao = 'Peso normal';
+            } else if (resultado >= 24.9) {
+                classificacao = 'Acima do peso';
+            } else {
+                classificacao = 'Tipo inválido'
+            };
+
+
+            if (peso && altura) {
+                alert(`Resultado: ${resultado.toFixed(2)}, ${classificacao}`);
+            };
+
+        };        
+    </script>
+</body </html>
